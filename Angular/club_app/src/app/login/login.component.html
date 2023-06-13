@@ -1,0 +1,32 @@
+<div class="container-fluid">
+    <form [formGroup]="loginForm">
+  
+      <h3>LOGIN</h3>
+  
+      <div class="form-group">
+        <label>Email:</label>
+        <input [class.is-invalid]="inEmail()?.invalid && inEmail()?.touched" type="email" class="form-control"
+          formControlName="Email" />
+  
+        <div *ngIf="(inEmail()?.invalid && inEmail()?.touched) || inEmail()?.dirty">
+          <small *ngIf="inEmail()?.errors?.required" class="text-danger">Email is required</small>
+          <small *ngIf="inEmail()?.errors?.pattern" class="text-danger">Please provide enter your email</small>
+        </div>
+  
+      </div>
+  
+      <div class="form-group">
+        <label>Password:</label>
+        <input [class.is-invalid]="inPassword()?.invalid && inPassword()?.touched" type="password" class="form-control"
+          formControlName="Password" />
+  
+        <div *ngIf="(inPassword()?.invalid && inPassword()?.touched) || inPassword()?.dirty">
+          <small *ngIf="inPassword()?.errors?.required" class="text-danger">Password is required</small>
+          <small *ngIf="inPassword()?.errors?.pattern" class="text-danger">Please provide enter password</small>
+        </div>
+  
+      </div>
+      <button type="button" (click)="">Update Name</button>
+    </form>
+  
+  </div>
